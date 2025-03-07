@@ -1,0 +1,299 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('styles/variables.css');
+@import url('styles/header.css');
+@import url('styles/content.css');
+@import url('styles/sidebar.css');
+@import url('styles/dropdown.css');
+
+body {
+    background: var(--primary-gradient);
+    min-height: 100vh;
+    font-family: 'Inter', sans-serif;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 0;
+}
+
+
+body.dark-mode #add-bookmark,
+body.dark-mode #edit-bookmark,
+body.dark-mode #bookmarks,
+body.dark-mode #add-research,
+body.dark-mode #edit-research,
+body.dark-mode #research-papers {
+    background: #333;
+    color: var(--dark-text);
+}
+
+body.dark-mode .card {
+    background: #444;
+    color: var (--dark-text);
+}
+
+body.dark-mode h2,
+body.dark-mode label,
+body.dark-mode .form-control,
+body.dark-mode .btn {
+    color: var(--dark-text);
+}
+
+body.dark-mode .form-control {
+    background: var(--dark-input-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+body.dark-mode select {
+    background: var(--dark-input-bg);
+    color: var (--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+body.dark-mode option {
+    background: var(--dark-input-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode input[type="radio"] {
+    background: var(--dark-input-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+header {
+    background: var(--header-background);
+    color: #fff;
+    padding: 0.5rem 1rem; /* Adjusted padding for better spacing */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make the header fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header is above other content */
+    transition: background 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header .header-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+header .header-buttons .form-control {
+    max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .header-buttons {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    header .header-buttons .form-control {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+main {
+    padding: 1rem;
+    max-width: 1600px; /* Increased from 1400px to 1600px */
+    margin: 0 auto;
+    padding-top: 6rem; /* Add padding to prevent content from being hidden behind the fixed header */
+}
+
+#add-bookmark, #edit-bookmark, #bookmarks,
+#add-research, #edit-research, #research-papers {
+    background: #fff;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input, button, select {
+    padding: 0.75rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button {
+    background: var(--button-background);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+button:hover {
+    background: var(--button-hover-background);
+    transform: scale(1.02);
+}
+
+button:focus, input:focus, select:focus {
+    outline: var(--focus-outline);
+    transform: scale(1.02);
+    outline-offset: 2px;
+}
+
+body.dark-mode button:focus, body.dark-mode input:focus, body.dark-mode select:focus {
+    outline: var(--focus-outline-dark);
+}
+
+button.edit {
+    background: var(--edit-button-background);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button.edit:hover {
+    background: var(--edit-button-hover-background);
+    transform: scale(1.02);
+}
+
+.bookmark, .research {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.bookmark:last-child, .research:last-child {
+    border-bottom: none;
+}
+
+.bookmark-title, .research-title {
+    font-weight: 600;
+    color: var(--text-dark); /* Ensure visibility in light mode */
+}
+
+body.dark-mode .bookmark-title, body.dark-mode .research-title {
+    color: var(--dark-text); /* Ensure visibility in dark mode */
+}
+
+.bookmark-url, .research-url {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.bookmark-url:hover, .research-url:hover {
+    text-decoration: underline;
+}
+
+.bookmark-category, .research-category {
+    font-style: italic;
+    color: #fff;
+    background: var(--bookmark-category-background);
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    font-size: 0.875rem;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: nowrap; /* Changed from wrap to nowrap */
+    gap: 1rem;
+    overflow-x: auto; /* Added to allow horizontal scrolling */
+    overflow-y: visible; /* Ensure hover effect is not cut off */
+    z-index: 0; /* Ensure hover effect is not cut off */
+}
+
+.category-section {
+    flex: 0 0 auto; /* Changed from flex: 1 1 calc(50% - 1rem) to flex: 0 0 auto */
+    box-sizing: border-box;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    min-width: 300px; /* Added to set a minimum width for each category section */
+    overflow: visible; /* Ensure hover effect is not cut off */
+    z-index: 1; /* Ensure hover effect is not cut off */
+    margin-top: 1rem; /* Added to prevent top cut-off */
+}
+
+body.dark-mode .category-section {
+    background: var(--dark-card-bg);
+}
+
+.category-section:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Ensure hover effect is not cut off */
+}
+
+@media (max-width: 768px) {
+    .category-section {
+        /* Removed flex: 1 1 100%; */
+    }
+}
+
+@media (max-width: 480px) {
+    .category-section {
+        /* Removed flex: 1 1 100%; */
+    }
+}
+
+.category-title {
+    background: var(--primary-gradient);
+    color: #fff;
+    padding: 0.75rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.bookmark-list, .research-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.bookmark-card, .research-card {
+    flex: 1 1 calc(50% - 1rem);
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .bookmark-card, body.dark-mode .research-card {
+    background: var(--dark-card-bg);
+}
+
+.bookmark-card:hover, .research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+

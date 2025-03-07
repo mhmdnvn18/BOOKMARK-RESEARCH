@@ -1,9 +1,0 @@
-body {
-    font-family: 'Inter', sans-serif;
-}
-.gradient-underline {
-    background-image: linear-gradient(120deg, #34d399 0%, #3b82f6 100%);
-    background-repeat: no-repeat;
-    background-size: 100% 0.2em;
-    background-position: 0 88%;
-}

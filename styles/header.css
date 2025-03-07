@@ -1,0 +1,45 @@
+header {
+    background: var(--header-background);
+    color: #fff;
+    padding: 0.5rem 1rem; /* Adjusted padding for better spacing */
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Make the header fixed */
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure the header is above other content */
+    transition: background 0.3s ease;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+header .header-buttons {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+header .header-buttons .form-control {
+    max-width: 200px;
+}
+
+@media (max-width: 768px) {
+    header .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    header .header-buttons {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    header .header-buttons .form-control {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}

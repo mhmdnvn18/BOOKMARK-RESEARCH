@@ -1,0 +1,271 @@
+.bookmark-card, .research-card {
+    flex: 1 1 calc(50% - 1rem);
+    position: relative;
+    overflow: hidden;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.dark-mode .bookmark-card, body.dark-mode .research-card {
+    background: var(--dark-card-bg);
+}
+
+.bookmark-card:hover, .research-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.accent {
+    color: var(--text-dark);
+}
+
+.accent-bg {
+    background: var(--primary-gradient);
+}
+
+body.dark-mode .accent {
+    color: var(--dark-text);
+}
+
+body.dark-mode .text-muted {
+    color: var(--dark-muted-text);
+}
+
+body.dark-mode .btn-light {
+    background: var(--dark-card-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+.bookmark-details, .research-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.bookmark-preview, .research-preview {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    margin-bottom: 0.5rem;
+}
+
+.favicon {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    vertical-align: middle;
+}
+
+.logout-button {
+    background: var(--logout-button-background);
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.logout-button:hover {
+    background: var(--logout-button-hover-background);
+}
+
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left-color: #4b6cb7;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.confirmation-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+.confirmation-dialog button {
+    margin: 0.5rem;
+}
+
+.glass-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(16px);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
+}
+
+body.dark-mode .glass-card {
+    background: var(--dark-card-bg);
+}
+
+.category-chip {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--primary-gradient);
+    color: var(--text-light);
+    padding: 0.25rem 0.75rem;
+    border-radius: rem;
+    font-size: 0.875rem;
+}
+
+.bookmark-actions, .research-actions {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column; /* Align buttons vertically */
+    gap: 0.5rem;
+    opacity: 1; /* Ensure the buttons are visible */
+    transition: opacity 0.3s ease;
+}
+
+.bookmark-card:hover .bookmark-actions, .research-card:hover .research-actions {
+    opacity: 1;
+}
+
+.hero-section {
+    padding: 4rem 0;
+    text-align: center;
+    color: var(--text-light);
+}
+
+body.dark-mode .hero-section {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.search-bar {
+    max-width: 600px;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2rem;
+    padding: 0.5rem 1rem;
+}
+
+body.dark-mode .search-bar {
+    background: var(--dark-input-bg);
+}
+
+body.dark-mode .search-bar input {
+    background: var(--dark-input-bg);
+    color: var(--dark-text);
+    border: 1px solid var(--dark-border);
+}
+
+footer {
+    background: var(--header-background);
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+    box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+}
+
+body.dark-mode footer {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+footer:focus-within, header:focus-within {
+    background: var(--button-hover-background);
+}
+
+.dark-mode-section {
+    background: #333;
+    color: var(--dark-text);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+    }
+}
+
+/* Accessibility improvements */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover, a:focus {
+    text-decoration: underline;
+    outline: var(--focus-outline);
+}
+
+a:focus {
+    outline-offset: 2px;
+}
+
+button:focus {
+    outline-offset: 2px;
+}
+
+input:focus, select:focus {
+    outline-offset: 2px;
+}
+
+.dropdown-menu {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.theme-customizer {
+    display: none;
+}
+
+.theme-customizer .form-group {
+    margin-bottom: 1rem;
+}
+
+.theme-customizer label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.theme-customizer input[type="color"] {
+    width: 100%;
+    height: 40px;
+    border: none;
+    cursor: pointer;
+}
+
+.theme-customizer button {
+    margin-top: 1rem;
+    width: 100%;
+}
+
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar .btn {font-size: 18px;}
+}
